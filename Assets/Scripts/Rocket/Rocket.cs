@@ -25,9 +25,9 @@ public class Rocket : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision != null)
-            if (collision.gameObject.tag == "Player")
+            if (collision.gameObject.TryGetComponent<Plane>(out Plane player))
             {
-                collision.gameObject.GetComponent<Plane>().OnDying();
+                player.OnDying();
                 Death();
             }
             else

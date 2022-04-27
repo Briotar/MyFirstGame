@@ -9,13 +9,12 @@ public class JoystickController : MonoBehaviour, IDragHandler, IEndDragHandler
     [SerializeField] private Image _joystickPoint;
     [SerializeField] private PlaneMover _planeMover;
 
-    private float _maxRadius;
+    private float _maxRadius = 0.7f;
     private Vector2 _direction;
 
     private void Start()
     {
         _joystickPoint.transform.position = transform.position;
-        _maxRadius = 0.7f;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -24,7 +23,9 @@ public class JoystickController : MonoBehaviour, IDragHandler, IEndDragHandler
         _direction = new Vector2(mousePosotion.x - transform.position.x, mousePosotion.y - transform.position.y);
 
         if (Vector2.SqrMagnitude(_direction) < _maxRadius)
+        {
             _joystickPoint.transform.position = new Vector3(mousePosotion.x, mousePosotion.y , transform.position.z);
+        }
         else
         {
             Vector2 delta = new Vector2(mousePosotion.x - transform.position.x, mousePosotion.y - transform.position.y);
