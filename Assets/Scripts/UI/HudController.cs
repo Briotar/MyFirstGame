@@ -16,7 +16,7 @@ public class HudController : MonoBehaviour
 
     private void OnEnable()
     {
-        _game.StartGame += Initialize;
+        _game.StartedGame += Initialize;
         _plane.CoinCountChanged += ChangeCoinLabel;
         _plane.Dying += ShowEndcreenInfo;
         Initialize();
@@ -24,7 +24,7 @@ public class HudController : MonoBehaviour
 
     private void OnDisable()
     {
-        _game.StartGame -= Initialize;
+        _game.StartedGame -= Initialize;
         _plane.CoinCountChanged -= ChangeCoinLabel;
         _plane.Dying -= ShowEndcreenInfo;
     }

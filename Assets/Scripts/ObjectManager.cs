@@ -11,12 +11,12 @@ public abstract class ObjectManager : ObjectPool
 
     protected void OnEnable()
     {
-        _game.StartGame += RestartGame;
+        _game.StartedGame += RestartGame;
     }
 
     protected void OnDisable()
     {
-        _game.StartGame -= RestartGame;
+        _game.StartedGame -= RestartGame;
     }
 
     protected virtual void Update()

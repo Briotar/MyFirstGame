@@ -8,8 +8,8 @@ public class Game : MonoBehaviour
     [SerializeField] private Plane _plane;
     [SerializeField] private MenuController _menuController;
 
-    public UnityAction EndGame;
-    public UnityAction StartGame;
+    public event UnityAction EndedGame;
+    public event UnityAction StartedGame;
 
     private void OnEnable()
     {
@@ -30,13 +30,13 @@ public class Game : MonoBehaviour
 
     private void EndingGame()
     {
-        EndGame?.Invoke();
+        EndedGame?.Invoke();
     }
 
     private void StartingGame()
     {
         Time.timeScale = 1;
-        StartGame?.Invoke();
+        StartedGame?.Invoke();
 
         _plane.gameObject.SetActive(true);
         _plane.PlaySound();

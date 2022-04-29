@@ -11,8 +11,8 @@ public class Plane : MonoBehaviour
 
     public int CoinCount => _coinCount;
 
-    public UnityAction Dying;
-    public UnityAction<int> CoinCountChanged;
+    public event UnityAction Dying;
+    public event UnityAction<int> CoinCountChanged;
 
     private void Awake()
     {

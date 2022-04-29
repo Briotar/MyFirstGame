@@ -14,12 +14,12 @@ public class MenuController : MonoBehaviour
 
     private void OnEnable()
     {
-        _game.EndGame += ShowEndScreen;
+        _game.EndedGame += ShowEndScreen;
     }
 
     private void OnDisable()
     {
-        _game.EndGame -= ShowEndScreen;
+        _game.EndedGame -= ShowEndScreen;
     }
 
     private void ShowEndScreen()

@@ -28,15 +28,15 @@ public class Rocket : MonoBehaviour
             if (collision.gameObject.TryGetComponent<Plane>(out Plane player))
             {
                 player.OnDying();
-                Death();
+                Dying();
             }
             else
             {
-                Death();
+                Dying();
             }
     }
     
-    private void Death()
+    private void Dying()
     {
         _explosionSpawner.SpawnExplosion(transform.position);
         _collider.enabled = false;
